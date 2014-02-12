@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <h1>Enter a tweet to tweet, <%= @name %></h1>
 
@@ -7,25 +9,6 @@
   </form>
 
   <br><br><div id='tweets'></div>
-
-
-  <script>
-    $('#tweet-form').submit(function(event) {
-      // event.preventDefault();
-      var tweet_data = $("#tweet-form").serialize();
-
-      $('#tweet-form input').prop('disabled', true);
-      $('#tweet-form submit').prop('disabled', true);
-      $('#tweets').html('<img src="ajax-loader.gif">');
-
-      $.post('/tweet', tweet_data, function(data) {
-        $('#tweets').html(data);
-        $('#tweet-form input').prop('disabled', false);
-        $('#tweet-form submit').prop('disabled', false);
-        $('#tweet_input').val("");
-      });
-      return false;
-    });
-  </script>
+  <br><br><div id='error'></div>
 
 </div>

@@ -39,18 +39,26 @@ end
 
 post '/tweet' do
   user = User.find(session[:user_id])
-  CLIENT.access_token = user.oauth_token
-  CLIENT.access_token_secret = user.oauth_secret
+  jid = user.tweet(params[:tweet])
+  jid
+  # puts "JOB ID: #{jid}"
 
-  begin
-    tweet = CLIENT.update(params[:tweet])
-  rescue Exception => e
-    e.to_s
-  else
-    "success"
-  end
+
+
+
+
+
+  # begin
+  #   tweet = CLIENT.update(params[:tweet])
+  # rescue Exception => e
+  #   e.to_s
+  # else
+  #   "success"
+  # end
 end
 
-get '/seeclient' do
-  CLIENT.to_json
+
+
+get '/status/:job_id' do 
+  job_is_complete(params[:job_id]).to_json
 end

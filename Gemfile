@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 
 # PostgreSQL driver
 gem 'pg'
@@ -23,3 +23,8 @@ gem 'twitter'
 gem 'faker'
 
 gem 'rspec'
+
+gem 'sidekiq'
+gem 'redis'
+
+gem 'pry'
